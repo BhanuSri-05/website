@@ -1,0 +1,77 @@
+§
+    øNZh§   ã                   ó4  — d dl mZmZ d dlmZ d dlZd dlZ eddg¬¦  «        Z  G d „ de¦  «        Z G d„ d	e¦  «        Z	d
+e
+d
+e
+fd„Z
+d
+„ Z e¦   «          e  
+                    d¦  «        defd„¦   «         Ze  
+                    d¦  «        de	fd„¦   «         ZdS )é    )Ú	APIRouterÚ
+HTTPException)Ú	BaseModelNz/userÚUser)ÚprefixÚtagsc                   ó.   — e Zd ZU eed<   eed<   eed<   dS )r   ÚusernameÚemailÚpasswordN©Ú__name__Ú
+__module__Ú__qualname__ÚstrÚ__annotations__© ó    úBC:\Users\navya\OneDrive\Desktop\edututor-ai\backend\routes\user.pyr   r      s+   € € € € € € Ø€M€MMØ
+€J€JJØ€M€MM€M€Mr   c                   ó$   — e Zd ZU eed<   eed<   dS )Ú	LoginUserr
+   r   Nr
+   r   r   r   r   r      s"   € € € € € € Ø
+€J€JJØ€M€MM€M€Mr   r   r   Úreturnc                 ór   — t          j        |                      ¦   «         ¦  «                             ¦   «         S )N)Ú hashlibÚsha256ÚencodeÚ	hexdigest)r   s    r   Ú
+hash_passwordr      s(   € Ý
+Œ>˜(Ÿ/š/Ñ+Ô+Ñ
+,Ô
+,×
+6Ò
+6Ñ
+8Ô
+8Ð8r   c                  óÐ   — t          j        d¦  «        } |                      ¦   «         }|                     d¦  «         |                      ¦   «          |                      ¦   «          d S )Nú
+students.dbzuCREATE TABLE IF NOT EXISTS users (
+        email TEXT PRIMARY KEY,
+        username TEXT,
+        password TEXT
+    ))Ú sqlite3Ú connectÚcursorÚ executeÚcommitÚclose)ÚconnÚcs     r   Úinit_manual_user_dbr)      sY   € Ý
+Œ?˜=Ñ
+)Ô
+)€DØ
+Š
+‰
+Œ
+€AØ‡I‚Ið 	ñ 
+ô 
+ð 
+ð
+ 	‡K‚KM„M€MØ‡J‚JL„L€L€L€Lr   z	/registerÚuserc                 óÐ  — t          j        d¦  «        }|                     ¦   «         }|                     d| j        f¦  «         |                     ¦   «         r%|                     ¦   «          t          dd¬¦  «        ‚|                     d| j        | j        t          | j
+        ¦  «        f¦  «         | 
+                    ¦   «          |                     ¦   «          d d| j        › d	iS )
+Nr    z!SELECT * FROM users WHERE email=?i  zUser already exists©Ú
+status_codeÚdetailz>INSERT INTO users (email, username, password) VALUES (?, ?, ?)Ú messageu	   âœ… User z registered successfully!)r!   r"   r#   r$   r
+   Úfetchoner&   r   r
+   r   r   r%   )r*   r'   r(   s      r   Úregisterr1   )   sÐ   € å
+Œ?˜=Ñ
+)Ô
+)€DØ
+Š
+‰
+Œ
+€AØ‡I‚IÐ1°D´J°=ÑAÔAÐAØ ‡z‚z|„|ð KØ
+Š
+‰ŒˆÝ¨Ð4IÐJÑJÔJÐJà‡I‚IÐNØŒz˜4œ=­-¸¼
+Ñ*FÔ*FÐGñIô Ið Ià‡K‚KM„M€MØ‡J‚JL„L€LØÐK 4¤=ÐKÐKÐKÐ
+LÐLr   z/loginc                 óX  — t          j        d¦  «        }|                     ¦   «         }|                     d| j        f¦  «         |                     ¦   «         }|                     ¦   «          |r,|d         t          | j        ¦  «        k    rdd|d         › d iS t          dd	¬
+¦  «        ‚)
+Nr    z2SELECT username, password FROM users WHERE email=?é   r/   u   âœ… Welcome back, r   ú!i‘  zInvalid email or passwordr,   )
+r!   r"   r#   r$   r
+   r0   r&   r   r   r   )r*   r'   r(   Úresults       r   Úloginr6   9   s    € å
+Œ?˜=Ñ
+)Ô
+)€DØ
+Š
+‰
+Œ
+€AØ‡I‚IÐBÀTÄZÀMÑRÔRÐRØ
+ZŠZ‰\Œ\€FØ‡J‚JL„L€Là 
+ð >&˜”)}¨T¬]Ñ;Ô;Ò;Ð;ØÐ<°°q´	Ð<Ð<Ð<Ð=Ð=Ý
+ CÐ0KÐ
+LÑ
+LÔ
+LÐLr   )Ú fastapir   r   Úpydanticr   r!   r   Úuser_auth_routerr   r   r   r   r)   Úpostr1   r6   r   r   r   ú<module>r;      sx  ðØ ,Ð ,Ð ,Ð ,Ð ,Ð ,Ð ,Ð ,Ø Ð Ð Ð Ð Ð Ø €€€Ø €€€à9Ø
+Ø
+ˆðñ ô Ð ðð ð ð ð ˆ9ñ ô ð ðð ð ð ð 	ñ ô ð ð
+9˜Cð 9 Cð 9ð 9ð 9ð 9ð	ð 	ð 	ð Ð Ñ Ô Ð ð ×Ò{Ñ#Ô#ðM4ð Mð Mð Mñ $Ô#ðMð ×ÒxÑ Ô ð	M	ð 	Mð 	Mð 	Mñ !Ô ð	Mð 	Mð 	Mr   
