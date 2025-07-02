@@ -1,0 +1,37 @@
+§
+    dá[h  ã                    ó˜  — d dl mZ d dlmZ d dlmZ d dlm Z  d dlZd dl	Z	d dl
+Z
+ e ¦   «           edd ¬¦  «        Z
+e
+                     e ej
+        d	d
+¦  «        ¬
+¦  «         e
+                     edgd
+dgdg¬¦  «         e
+                     d¦  «        d„ ¦   «         Zd dlmZ d dlmZ d dlmZ d dlmZ d dlmZ e
+                     e¦  «         e
+                     e¦  «         e
+                     e¦  «         e
+                     e¦  «         e
+                     e¦  «         d„ Z e	j        de¦  «                             ¦   «          dS )é    )Ú FastAPI)ÚCORSMiddleware)ÚSessionMiddleware)Ú
+load_dotenvNz
+EduTutor AIz0.1.0)ÚtitleÚ versionÚ
+SECRET_KEYÚdefault_secret)Ú
+secret_keyÚ*T)Ú
+allow_originsÚallow_credentialsÚ
+allow_methodsÚ
+allow_headersú/c                  ó
+   — ddiS )NÚ messagezWelcome to EduTutor AI!© r   ó    ú;C:\Users\navya\OneDrive\Desktop\edututor-ai\backend\main.pyÚrootr      s   € àÐ0Ð
+1Ð1r   )Ú
+quiz_router)Ú
+auth_router)Úuser_auth_router)Úsubmission_router)Úeducator_routerc                  ó.   — t          j        d¦  «         d S )Nzhttp://127.0.0.1:8000/docs)Ú
+webbrowserÚopen_newr   r   r   Ú	open_docsr    1   s   € ÝÔÐ4Ñ5Ô5Ð5Ð5Ð5r   g      ð?)Ú fastapir   Úfastapi.middleware.corsr   Ústarlette.middleware.sessionsr   Údotenvr   ÚosÚ	threadingr   ÚappÚadd_middlewareÚgetenvÚgetr   Ú
+routes.quizr   Ú
+routes.authr   Úroutes.user_authr   Úroutes.submissionr   Úroutes.educatorr   Úinclude_routerr    ÚTimerÚstartr   r   r   ú<module>r3      s  ðØ Ð Ð Ð Ð Ð Ø 2Ð 2Ð 2Ð 2Ð 2Ð 2Ø ;Ð ;Ð ;Ð ;Ð ;Ð ;Ø Ð Ð Ð Ð Ð Ø 	€	€	€	Ø Ð Ð Ð Ø Ð Ð Ð ð €
+
+„
+€
+ð  €gØ
+Øð ñ  ô  €ð × Ò Ð$°°´¸<ÐIYÑ1ZÔ1ZÐ Ñ [Ô [Ð [ð × Ò ØØ%ØØ%Ø%ð
+ ñ ô ð ð ‡‚ˆ„ð2ð 2ñ „ð2ð $Ð #Ð #Ð #Ð #Ð #Ø #Ð #Ð #Ð #Ð #Ð #Ø -Ð -Ð -Ð -Ð -Ð -Ø /Ð /Ð /Ð /Ð /Ð /Ø +Ð +Ð +Ð +Ð +Ð +à × Ò ;Ñ Ô Ð Ø × Ò ;Ñ Ô Ð Ø × Ò Ð#Ñ $Ô $Ð $Ø × Ò Ð$Ñ %Ô %Ð %Ø × Ò ?Ñ #Ô #Ð #ð6ð 6ð 6ð €	„YÑ Ô × %Ò %Ñ 'Ô 'Ð 'Ð 'Ð 'r   
