@@ -1,0 +1,38 @@
+Ë
+    Úà^h)  ã            
+       ó^  — d dl mZmZmZ d dlmZ d dlm Z  d dlm	Z	 d dl
+Z
+d dl
+Z
+ e d«      Z e	e«      Z
+e
+j                  d  e
+j                  d«       e
+j                  d	«      d
+d
+dd
+di¬«         eddg¬«      Zej#                  d«      defd„«       Zej#                  d«      defd„«       Zy)é    )Ú RequestÚ	APIRouterÚ
+HTTPException)ÚRedirectResponse)ÚConfig)ÚOAuthNz.envÚgoogleÚGOOGLE_CLIENT_IDÚGOOGLE_CLIENT_SECRETz#https://oauth2.googleapis.com/tokenz)https://accounts.google.com/o/oauth2/authz%https://www.googleapis.com/oauth2/v1/Úscopezopenid email profile) ÚnameÚ	client_idÚ
+client_secretÚaccess_token_urlÚ
+authorize_urlÚapi_base_urlÚ
+client_kwargsz/authz
+Google Auth)ÚprefixÚtagsz/loginÚ requestc              ƒ   ó€   K  — | j                  d«      }t        j                  j                   | |«      ƒ d {  –—† S 7 Œ­w)NÚ
+auth_callback)Ú url_forÚoauthr	   Úauthorize_redirect)r   Úredirect_uris     úC:\Users\Lucky\Downloads\EduTutor-AI-Personalized-Learning-with-Generative-AI-and-LMS-Integration-main\edu\Project Files\backend\routes\auth.pyÚloginr      s1   è ø€ à—?‘? ?Ó3€LÜ—‘×0Ñ0°¸,ÓG×
+GÐGÐ
+Gús   ‚5>·<¸>z	/callbackc              ƒ   óv  K  — 	 t         j                  j                  | «      ƒ d {  –—† }t         j                  ddd|d   › i¬«      }|j
+                  «       }t
+        |«      | j                  d<   || j                  d <   t        d¬	«      S 7 Œf# t        $ r}t        d
+d
+t        |«      › ¬«      ‚d }~ww xY w­w)
+Nz-https://www.googleapis.com/oauth2/v3/userinfoÚ
+Authorizationz Bearer Úaccess_token)Ú headersÚuserÚtokenz/docs)Úurli  zGoogle authentication failed: )Ú
+status_codeÚdetail)r   r	   Úauthorize_access_tokenÚrequestsÚgetÚjsonÚdictÚ sessionr   Ú	Exceptionr   Ústr)r   r$   Úuser_info_responseÚ	user_infoÚes        r   r   r      s»   è ø€ ð_Ü—l‘l×9Ñ9¸'ÓB×Bˆä%Ÿ\™\Ø;Ø$¨ °°nÑ0EÐ/FÐ&GÐHô
+Ðð
+ '×+Ñ+Ó-ˆ	ä"& y£/ˆ ‰˜ÑØ#(ˆ ‰˜ Ñ ä GÔ,Ð,ð Cùô ò _Ü¨Ð6TÔUXÐYZÓU[ÐT\Ð4]Ô^Ð^ûð_üs9   ‚B9„"B ¦B
+§A%B ÂB9Â
+B Â	B6ÂB1Â1B6Â6B9)Ú fastapir   r   r   Úfastapi.responsesr   Ústarlette.configr    Ú%authlib.integrations.starlette_clientr   r)   ÚosÚconfigr   ÚregisterÚgetenvÚ
+auth_routerr*   r   r   © ó    r   ú<module>r>      sÌ   ðß 5Ñ 5Ý .Ý #Ý 7Û Û 	á	‹€á
+ˆf‹
+€Ø ‡Ø	Øˆbi‰iÐ*Ó+Ø"—)‘)Ð2Ó3Ø:Ø=Ø8ØÐ2Ð3ð ô ñ ˜w¨m¨_Ô=€
+à‡ÓðH˜ò Hó ðHð 
+‡Óð_ ò _ó ñ_r=   
