@@ -1,0 +1,18 @@
+§
+    dá[hI  ã                   ó˜   — d dl mZ d dlmZ  eddg¬¦  «        Z G d„ d e¦  «        Ze                     d¦  «        d	efd
+„¦   «         Z d
+S )é    )Ú	APIRouter)Ú	BaseModelz/quizzQuiz Submission)ÚprefixÚtagsc                   ó.   — e Zd ZU eed<   eed<   eed<   dS )ÚQuizSubmissionÚ user_idÚ quiz_idÚ answersN)Ú__name__Ú
+__module__Ú__qualname__ÚstrÚ__annotations__Údict© ó    úHC:\Users\navya\OneDrive\Desktop\edututor-ai\backend\routes\submission.pyr   r   
+   s+   € € € € € € Ø
+€L€LLØ
+€L€LLØ
+€M€MM€M€Mr   r   z /submitÚ
+submissionc                 ó6   — d| j         › d| j        › | j        dœS )NzQuiz z submitted by user )Ú messager
+   )r
+   r	   r
+   )r   s    r   Ú
+submit_quizr      s3   € ð W˜:Ô-ÐVÐVÀ*ÔBTÐVÐVØÔ%ðð ð r   N)Ú fastapir   Úpydanticr   Úsubmission_routerr   Úpostr   r   r   r   ú<module>r      sµ   ðð Ð Ð Ð Ð Ð Ø Ð Ð Ð Ð Ð àIØ
+Ø
+Ð	ðñ ô Ð ð
+ð ð ð ð Yñ ô ð ð
+ ×Ò˜	Ñ"Ô"ð˜Nð ð ð ñ #Ô"ðð ð r   
