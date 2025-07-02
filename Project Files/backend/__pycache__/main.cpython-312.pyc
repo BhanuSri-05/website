@@ -1,0 +1,33 @@
+Ë
+    Úà^h  ã                    óD  — d dl mZ d dlmZ d dlmZ d dlm Z  d dlZd dl	Z	d dl
+Z
+ e «         edd ¬«      Z
+e
+j                  e ej                  d	d
+«      ¬
+«       e
+j                  edgd
+dgdg¬«       e
+j                  d«      d„ «       Zd dlmZ d dlmZ d dlmZ d dlmZ d dlmZ e
+j5                  e«       e
+j5                  e«       e
+j5                  e«       e
+j5                  e«       e
+j5                  e«       d„ Z e	j8                  de«      j;                  «        y)é    )Ú FastAPI)ÚCORSMiddleware)ÚSessionMiddleware)Ú
+load_dotenvNz
+EduTutor AIz0.1.0)ÚtitleÚ versionÚ
+SECRET_KEYÚdefault_secret)Ú
+secret_keyÚ*T)Ú
+allow_originsÚallow_credentialsÚ
+allow_methodsÚ
+allow_headersú/c                  ó
+   — ddiS )NÚ messagezWelcome to EduTutor AI!© r   ó    úˆC:\Users\Lucky\Downloads\EduTutor-AI-Personalized-Learning-with-Generative-AI-and-LMS-Integration-main\edu\Project Files\backend\main.pyÚrootr      s   € àÐ0Ð
+1Ð1r   )Ú
+quiz_router)Ú
+auth_router)Úuser_auth_router)Úsubmission_router)Úeducator_routerc                  ó.   — t        j                  d«       y )Nzhttp://127.0.0.1:8000/docs)Ú
+webbrowserÚopen_newr   r   r   Ú	open_docsr    1   s   € Ü×ÑÐ4Õ5r   g      ð?)Ú fastapir   Úfastapi.middleware.corsr   Ústarlette.middleware.sessionsr   Údotenvr   ÚosÚ	threadingr   ÚappÚadd_middlewareÚgetenvÚgetr   Ú
+routes.quizr   Ú
+routes.authr   Úroutes.user_authr   Úroutes.submissionr   Úroutes.educatorr   Úinclude_routerr    ÚTimerÚstartr   r   r   ú<module>r3      s  ðÝ Ý 2Ý ;Ý Û 	Û Û ñ „
+ñ  Ø
+Øô €ð × Ñ Ð$°°·±¸<ÐIYÓ1ZÐ Ô [ð × Ñ ØØ%ØØ%Ø%ð
+ ô ð ‡ˆƒñ2ó ð2õ $Ý #Ý -Ý /Ý +à × Ñ ;Ô Ø × Ñ ;Ô Ø × Ñ Ð#Ô $Ø × Ñ Ð$Ô %Ø × Ñ ?Ô #ò6ð €	‡YÓ × %Ñ %Õ 'r   
