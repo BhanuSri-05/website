@@ -1,0 +1,71 @@
+§
+    dá[h£  ã                   ó  — d dl mZmZ d dlmZ d dlZd dlZ eddg¬¦  «        Z  G d „ de¦  «        Zde	d	e	fd
+„Z
+d
+„ Z
+ e
+¦   «          e                      d¦  «        d
+efd„¦   «         Z
+e                      d¦  «        d
+efd„¦   «         ZdS )é    )Ú	APIRouterÚ
+HTTPException)Ú	BaseModelNz/userÚUser)ÚprefixÚtagsc                   ó$   — e Zd ZU eed<   eed<   dS )r   ÚemailÚpasswordN)Ú__name__Ú
+__module__Ú__qualname__ÚstrÚ__annotations__© ó    úGC:\Users\navya\OneDrive\Desktop\edututor-ai\backend\routes\user_auth.pyr   r      s"   € € € € € € Ø
+€J€JJØ€M€MM€M€Mr   r
+   Úreturnc                 ór   — t          j        |                      ¦   «         ¦  «                             ¦   «         S )N)Ú hashlibÚsha256ÚencodeÚ	hexdigest)r
+   s    r   Ú
+hash_passwordr      s(   € Ý
+Œ>˜(Ÿ/š/Ñ+Ô+Ñ
+,Ô
+,×
+6Ò
+6Ñ
+8Ô
+8Ð8r   c                  óÐ   — t          j        d¦  «        } |                      ¦   «         }|                     d¦  «         |                      ¦   «          |                      ¦   «          d S )Nú
+students.dbz^CREATE TABLE IF NOT EXISTS users (
+        email TEXT PRIMARY KEY,
+        password TEXT
+    ))Ú sqlite3Ú connectÚcursorÚ executeÚcommitÚclose)ÚconnÚcs     r   Úinit_manual_user_dbr%      sY   € Ý
+Œ?˜=Ñ
+)Ô
+)€DØ
+Š
+‰
+Œ
+€AØ‡I‚Ið 	ñ 
+ô 
+ð 
+ð 	‡K‚KM„M€MØ‡J‚JL„L€L€L€Lr   z	/registerÚuserc                  ó²  — t          j        d¦  «        }|                     ¦   «         }|                     d| j        f¦  «         |                     ¦   «         r%|                     ¦   «          t          dd¬¦  «        ‚|                     d| j        t          | j	        ¦  «        f¦  «         | 
+                    ¦   «          |                     ¦   «          d diS )	Nr   z!SELECT * FROM users WHERE email=?i  zUser already exists©Ú
+status_codeÚdetailz1INSERT INTO users (email, password) VALUES (?, ?)Ú messageu   âœ… Registration successful!)
+r   r   r   r    r
+   Úfetchoner"   r   r   r
+   r!   )r&   r#   r$   s      r   Úregisterr-   "   s¼   € å
+Œ?˜=Ñ
+)Ô
+)€DØ
+Š
+‰
+Œ
+€AØ‡I‚IÐ1°D´J°=ÑAÔAÐAØ ‡z‚z|„|ð KØ
+Š
+‰ŒˆÝ¨Ð4IÐJÑJÔJÐJà‡I‚IÐAØŒz=¨¬Ñ7Ô7Ð8ñ:ô :ð :à‡K‚KM„M€MØ‡J‚JL„L€LØÐ5Ð
+6Ð6r   z/loginc                 óD  — t          j        d¦  «        }|                     ¦   «         }|                     d| j        f¦  «         |                     ¦   «         }|                     ¦   «          |r"|d         t          | j        ¦  «        k    rddiS t          dd ¬¦  «        ‚)	Nr   z(SELECT password FROM users WHERE email=?r   r+   u   âœ… Login successful!i‘  zInvalid email or passwordr(   )
+r   r   r   r    r
+   r,   r"   r   r
+   r   )r&   r#   r$   Úresults       r   Úloginr0   2   s‘   € å
+Œ?˜=Ñ
+)Ô
+)€DØ
+Š
+‰
+Œ
+€AØ‡I‚IÐ8¸4¼:¸-ÑHÔHÐHØ
+ZŠZ‰\Œ\€FØ‡J‚JL„L€Là 
+ð 4&˜”)}¨T¬]Ñ;Ô;Ò;Ð;ØÐ2Ð3Ð3Ý
+ CÐ0KÐ
+LÑ
+LÔ
+LÐLr   )Ú fastapir   r   Úpydanticr   r   r   Úuser_auth_routerr   r   r   r%   Úpostr-   r0   r   r   r   ú<module>r5      sI  ðØ ,Ð ,Ð ,Ð ,Ð ,Ð ,Ð ,Ð ,Ø Ð Ð Ð Ð Ð Ø €€€Ø €€€à9Ø
+Ø
+ˆðñ ô Ð ðð ð ð ð ˆ9ñ ô ð ð
+9˜Cð 9 Cð 9ð 9ð 9ð 9ðð ð ð Ð Ñ Ô Ð ð ×Ò{Ñ#Ô#ð74ð 7ð 7ð 7ñ $Ô#ð7ð ×ÒxÑ Ô ð	Mð 	Mð 	Mð 	Mñ !Ô ð	Mð 	Mð 	Mr   
