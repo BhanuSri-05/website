@@ -1,0 +1,8 @@
+§
+    dá[hA  ã                   óp   — d dl mZ  eddg¬¦  «        Ze                     d¦  «        defd „¦   «         ZdS )	é    )Ú	APIRouterz	/educatorÚEducator)ÚprefixÚtagsz/student/{user_id}/quiz-historyÚ user_idc                 ó   — | g d¢dœS )N)Úquiz1Úquiz2Úquiz3)r    Úquiz_history© )r    s    úFC:\Users\navya\OneDrive\Desktop\edututor-ai\backend\routes\educator.pyÚget_student_quiz_historyr      s   € ð Ð0KÐ0KÐ0KÐ
+LÐ
+LÐLó    N)Ú fastapir   Úeducator_routerÚgetÚstrr   r
+   r   r   ú<module>r      s}   ðØ Ð Ð Ð Ð Ð à)Ø
+Ø
+ˆðñ ô €ð
+ ×ÒÐ6Ñ7Ô7ðM cð Mð Mð Mñ 8Ô7ðMð Mð Mr   
