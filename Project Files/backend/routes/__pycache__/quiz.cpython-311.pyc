@@ -1,0 +1,98 @@
+§
+    Yå[h  ã                   óâ   — d dl mZmZ d dlmZ d dlmZ d dl Z d dlZd dl	Z	d dl
+Z
+ e¦   «           eddg¬ ¦  «        Z
+ G d„ d	e¦  «        Zd
+„ Z
+e
+                     d
+¦  «        defd
+„¦   «         ZdS )é    )Ú	APIRouterÚ
+HTTPException)Ú	BaseModel)Ú
+load_dotenvNz/quizÚQuiz)ÚprefixÚtagsc                   ó$   — e Zd ZU eed<   eed<   dS )Ú
+QuizRequestÚtopicÚ
+num_questionsN)Ú__name__Ú
+__module__Ú__qualname__ÚstrÚ__annotations__Úint© ó    úBC:\Users\navya\OneDrive\Desktop\edututor-ai\backend\routes\quiz.pyr
+   r
+      s'   € € € € € € Ø
+€J€JJØÐÐÑÐÐr   r
+   c                  óâ   — d} ddi}t          j        d¦  «        ddœ}t          j        | ||¬ ¦  «        }|j        dk    r|                     ¦   «         d	         S t
+          d
+|j         › ¦  «        ‚)
+Nz(https://iam.cloud.ibm.com/identity/tokenúContent-Typez!application/x-www-form-urlencodedÚWATSONX_API_KEYz&urn:ibm:params:oauth:grant-type:apikey)ÚapikeyÚ
+grant_type)Ú headersÚdataéÈ   Úaccess_tokenzFailed to get IBM token: )ÚosÚgetenvÚrequestsÚpostÚ
+status_codeÚjsonÚ	ExceptionÚtext)Úurlr   r   Úresponses       r   Ú
+get_ibm_tokenr*      s   € Ø
+4€CØÐBÐC€Gå”)Ð-Ñ.Ô.Ø>ðð €Dõ Œ}˜S¨'¸Ð=Ñ=Ô=€HØ Ô ˜sÒ "Ð "Ø}Š}‰Œ˜~Ô.Ð.åÐC°H´MÐCÐCÑDÔDÐDr   z	/generateÚ payloadc                 óÄ  — d| j         › d}d|› d| j        › d}t          ¦   «         }t           j        d¦  «        › d }d|› d	d
+œ}t           j        d
+¦  «        |dd
+dœt           j        d¦  «        dœ}t
+          j        |||¬¦  «        } | j         dk    rH	 |                      ¦   «         d         d         d         }t          |t          t          f¦  «        r	|d         }	n|}	t          d|	¦  «         t          j        d|	t          j        ¦  «        }
+|
+st!          d¦  «        ‚|
+                     d¦  «        }
+	 	 t          j        |
+¦  «        }nV# t          j        $ rC |
+                     ¦   «         d d…         }
+t+          |
+¦  «        dk     rt-          dd¬¦  «        ‚Y nw xY wŒld|iS # t.          $ r&}
+t-          dd t1          |
+¦  «        › ¬¦  «        ‚d }
+~
+ww xY wd S )!Nz)This is some basic content on the topic: ú.z/Use the following content to generate a quiz:
+
+z
+
+
+Generate af   multiple choice questions (MCQs). For each question, include:
+- 'question': the text of the question
+- 'options': a list of 4 answer choices
+- 'answer': the correct answer
+Return ONLY a valid JSON array of question objects. No explanation. No markdown. No code block.
+Do not wrap it in a Python tuple or return extra text. Do not truncate the last question.ÚWATSONX_ENDPOINTz)/ml/v1/text/generation?version=2023-05-29z Bearer zapplication/json)Ú
+Authorizationr   ÚWATSONX_MODEL_IDÚgreedyiÜ  )Údecoding_methodÚmax_new_tokensÚWATSONX_PROJECT_ID)Úmodel_idÚinputÚ
+parametersÚ
+project_id)r   r%   r   Ú resultsr   Úgenerated_textu   ðŸ” WatsonX output:
+z\[\s*{.*?}\s*\]z,No valid JSON array found in WatsonX output.Téÿÿÿÿé
+   iô  zOutput too corrupted to parse.)r$   ÚdetailÚ	questionsz Failed to parse WatsonX output: )r   r
+   r*   r    r!   r"   r#   r$   r%   Ú
+isinstanceÚtupleÚlistÚprintÚreÚsearchÚDOTALLÚ
+ValueErrorÚgroupÚloadsÚJSONDecodeErrorÚstripÚlenr   r&   r   )r+   Úcourse_materialsÚpromptÚ	ibm_tokenr(   r   Úpayload_datar)   Ú
+raw_outputÚraw_textÚmatchÚcleaned_json_strr>   Úes                 r   Ú
+generate_quizrU   $   sv  € ðH TÀ7Ä=ÐSÐSÐSÐð	eØ
+ð	eð 	eàÔ)ð	eð 	eð 	eð 
+õ ‘”€IÝ
+ŒYÐ)Ñ
+*Ô
+*Ð
+UÐ
+UÐ
+U€Cà. 9Ð.Ð.Ø*ðð €Gõ
+ ”IÐ0Ñ1Ô1Øà'Ø"ð
+ð 
+õ ”iÐ 4Ñ5Ô5ðð €Lõ Œ}˜S¨'¸ÐEÑEÔE€HØ Ô ˜sÒ "Ñ "ð	eØ!Ÿš™œ¨Ô3°AÔ6Ð7GÔHˆJÝ˜*¥u­d mÑ4Ô4ð 
+&Ø% aœ=à%ÝÐ*¨HÑ5Ô5Ð5å”IÐ0°(½B¼IÑFÔFˆEØð 
+QÝ Ð!OÑPÔPÐPØ$Ÿ{š{¨1™~œ~Ðð 
+fðfÝ $¤
+Ð+;Ñ <Ô <IØøÝÔ+ð fð fð fØ'7×'=Ò'=Ñ'?Ô'?ÀÀÀÔ'DÐ$ÝÐ+Ñ,Ô,¨rÒ1Ð1Ý+¸ÐDdÐeÑeÔeÐeð 2Ð1ðføøøð	 
+fð   Ð+Ð+øåð 	eð 	eð 	eÝ¨CÐ8cÕ[^Ð_`Ñ[aÔ[aÐ8cÐ8cÐdÑdÔdÐdøøøøð	eøøøð1 #Ð "s>   ÂB$F- Ä>E ÅF- ÅAF%Æ"F- Æ$F%Æ% F- Æ-
+GÆ7!GÇG)Ú fastapir   r   Úpydanticr   Údotenvr   r    r"   r%   rC   Ú
+quiz_routerr
+   r*   r#   rU   r   r   r   ú<module>rZ      s  ðØ ,Ð ,Ð ,Ð ,Ð ,Ð ,Ð ,Ð ,Ø Ð Ð Ð Ð Ð Ø Ð Ð Ð Ð Ð ð 
+€	€	€	Ø €€€Ø 
+€
+€
+€
+Ø 	€	€	€	ð €
+
+„
+€
+àˆiØ
+Ø
+ˆðñ ô €
+ð
+ð ð ð ð )ñ ô ð ð
+Eð 
+Eð 
+Eð 
+×Ò+ÑÔð\e˜;ð \eð \eð \eñ Ôð\eð \eð \er   
