@@ -1,0 +1,48 @@
+§
+    {Yhw  ã                   óä   — d dl Z d dlZd dlmZ d dlmZ  e¦   «           e e j        d¦  «         e j        d¦  «         e j        d¦  «         e j        d ¦  «        ¬¦  «        Z d	ed
+ed
+e	fd„Z
+dS )
+é    N)Ú
+load_dotenv)Ú
+WatsonxLLMÚWATSONX_MODEL_IDÚWATSONX_ENDPOINTÚWATSONX_PROJECT_IDÚWATSONX_API_KEY)Úmodel_idÚurlÚ
+project_idÚapikeyÚ contextÚtopicÚ
+num_questionsc                  óÔ   — d|› d|› d| › d }	 t                                |¦  «        }t          j        |¦  «        S # t          $ r!}t
+          d|¦  «         dg d dœgcY d }~S d }~ww xY w)	NzJ
+    You are an AI tutor. Based on the following class material, generate z0 multiple-choice questions (MCQs) on the topic "zÔ".
+    Provide output in valid JSON format like:
+    [
+      {
+        "question": "What is ...?",
+        "options": ["A", "B", "C", "D"],
+        "answer": "B"
+      },
+      ...
+    ]
+
+    Class Material:
+    z
+    u!   âŒ Failed to parse LLM response:u   âš ï¸ Error parsing response.Ú )ÚquestionÚ optionsÚanswer)ÚllmÚinvokeÚjsonÚloadsÚ	ExceptionÚprint)r
+   r   r   ÚpromptÚresponseÚes         úKC:\Users\navya\OneDrive\Desktop\edututor-ai\backend\services\llm_service.pyÚgenerate_mcq_from_contextr      s¹   € ðØJWðð ð JOðð ð 
+ðð ð €Fð ]Ý—:’:˜fÑ%Ô%ˆÝŒz˜(Ñ#Ô#Ð#øÝ
+ð ]ð ]ð ]Ý
+Ð1°1Ñ5Ô5Ð5Ø=È"ÐXZÐ[Ð[Ð\Ð\Ð\Ð\Ð\Ð\Ð\øøøøð]øøøs   Ž-< ¼
+A'ÁA"ÁA'Á"A')
+Úosr   Údotenvr   Ú
+langchain_ibmr   Úgetenvr   ÚstrÚintr   © ó    r   ú<module>r(      sÜ   ðð 
+€	€	€	Ø 
+€
+€
+€
+Ø Ð Ð Ð Ð Ð Ø $Ð $Ð $Ð $Ð $Ð $à 
+€
+
+„
+€
+ð  €jØ
+ˆRŒYÐ)Ñ
+*Ô
+*ØˆŒ	Ð$Ñ%Ô%ØˆrŒyÐ-Ñ.Ô.Ø
+ˆ2Œ9Ð&Ñ
+'Ô
+'ð	 ñ  ô  €ð] sð ]°3ð ]Àsð ]ð ]ð ]ð ]ð ]ð ]r'   
