@@ -1,0 +1,7 @@
+Ë
+    £S^hA  ã                   óZ   — d dl mZ  eddg¬«      Zej                   d«      defd „«       Zy)	é    )Ú	APIRouterz	/educatorÚEducator)ÚprefixÚtagsz/student/{user_id}/quiz-historyÚ user_idc                 ó   — | g d¢dœS )N)Úquiz1Úquiz2Úquiz3)r    Úquiz_history© )r    s    úIC:\Users\iswarya\OneDrive\Desktop\Edu_Tutor-AI\backend\routes\educator.pyÚget_student_quiz_historyr      s   € ð Ò0KÑ
+LÐLó    N)Ú fastapir   Úeducator_routerÚgetÚstrr   r
+   r   r   ú<module>r      sD   ðÝ áØ
+Ø
+ˆô€ð
+ ×ÑÐ6Ó7ðM cò Mó 8ñMr   
